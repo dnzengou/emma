@@ -30,6 +30,7 @@
     "async": "^2.0.0-rc.2",
     "body-parser": "^1.15.0",
     "bootstrap": "^3.3.6",
+    "cheerio": "^0.20.0",
     "express": "^4.13.4",
     "express-session": "^1.13.0",
     "jade": "^1.11.0",

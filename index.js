@@ -30,7 +30,7 @@ var bot = new machina.Fsm({
   user: user,
 
   // Let the bot say something
-  say: function(message) { return console.log(message); },
+  say: function(message) { return console.log('    > ' + message); },
 
   // Take user input and do something
   listen: function(input) { this.handle('listen', input); },
