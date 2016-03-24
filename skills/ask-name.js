@@ -8,6 +8,7 @@ module.exports = {
   listen: function(input) {
     this.user.name = input;
     this.say('Hi ' + this.user.name + '!');
-    this.transition('ask-age');
+
+    this.transition('ready');
   }
 };

@@ -8,11 +8,13 @@ module.exports = {
   listen: function(input) {
     if (isNaN(input)) {
       this.say('Hmm. That\'s not an age. :)');
-      this.say('How old again?');
+      this.say('How old, in years?');
       return this.transition('askAge');
     }
     this.user.age = parseInt(input);
     var difference = this.user.age - this.emma.age;
-    this.say('Wow! You are ' + difference + ' years older than me. :)');
+    this.say('Cool ' + this.user.name + '. You are ' + difference + ' years older than me. :)');
+
+    this.transition('ready');
   }
 };
