@@ -24,57 +24,19 @@ var emma = { name: 'Emma', age: 1 };
  */
 var bot = new machina.Fsm({
   initialState: 'welcome',
-  states: {
+  states: require('./skills/index'),
 
-    welcome: {
-      _onEnter: function() {
-        this.say('Hello! My name is Emma.');
-        this.transition('askName');
-      }
-    },
-
-    askName: {
-      _onEnter: function() {
-        this.say('What is your name?');
-      },
-      listen: function(input) {
-        user.name = input;
-        this.say('Hi ' + user.name + '!');
-        this.transition('askAge');
-      }
-    },
-
-    askAge: {
-      _onEnter: function() {
-        this.say('How old are you?');
-      },
-      listen: function(input) {
-        if (isNaN(input)) {
-          this.say('Hmm. That\'s not an age. :)');
-          this.say('How old again?');
-          return this.transition('askAge');
-        }
-        user.age = parseInt(input);
-        var difference = user.age - emma.age;
-        this.say('Wow! You are ' + difference + ' years older than me. :)');
-      }
-    }
-  },
+  emma: emma,
+  user: user,
 
   // Let the bot say something
-  say: function(message) {
-    return console.log(message);
-  },
+  say: function(message) { return console.log(message); },
 
   // Take user input and do something
-  listen: function(input) {
-    this.handle('listen', input);
-  },
+  listen: function(input) { this.handle('listen', input); },
 
   // Start conversion from the top
-  reset: function() {
-    this.transition('welcome');
-  }
+  reset: function() { this.transition('welcome'); }
 });
 
 
