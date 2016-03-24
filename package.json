@@ -1,0 +1,44 @@
+{
+  "name": "emma",
+  "version": "1.0.0",
+  "description": "Conversational user interface . The future has no visual interface.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matthoiland/emma.git"
+  },
+  "keywords": [
+    "cui",
+    "bot",
+    "ai",
+    "conversational",
+    "user",
+    "interface",
+    "nlp"
+  ],
+  "author": "Matt Hoiland",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/matthoiland/emma/issues"
+  },
+  "homepage": "https://github.com/matthoiland/emma#readme",
+  "dependencies": {
+    "async": "^2.0.0-rc.2",
+    "body-parser": "^1.15.0",
+    "bootstrap": "^3.3.6",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "jade": "^1.11.0",
+    "machina": "^2.0.0-1",
+    "moment": "^2.12.0",
+    "mongoose": "^4.4.9",
+    "natural": "^0.4.0",
+    "path": "^0.12.7",
+    "request": "^2.69.0",
+    "sentiment": "^1.0.6"
+  }
+}
