@@ -13,6 +13,14 @@ var machina   = require('machina'); // https://github.com/ifandelse/machina.js
 
 
 /**
+ * Current skills
+ */
+var listOfSkills = ['Mood', 'Weather', 'Name', 'Movies'];
+console.log('Current skills:\n', listOfSkills, '\n\n');
+
+
+
+/**
  * Object to store info about user
  */
 var user = { name: null, age: null };
