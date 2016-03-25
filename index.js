@@ -8,8 +8,12 @@
 /**
  * Module dependencies
  */
+
 // var natural   = require('natural'); // https://github.com/NaturalNode/natural
+var fs        = require('fs');
 var machina   = require('machina'); // https://github.com/ifandelse/machina.js
+var Ivona     = require('ivona-node');
+var keys      = require('./keys');
 
 
 /**
@@ -17,6 +21,28 @@ var machina   = require('machina'); // https://github.com/ifandelse/machina.js
  */
 var listOfSkills = ['Mood', 'Weather', 'Name', 'Movies'];
 console.log('Current skills:\n', listOfSkills, '\n\n');
+
+
+/**
+ * Play message as Text-to-Voice
+ */
+var ivona = new Ivona({
+  accessKey: keys.ivona.access_key,
+  secretKey: keys.ivona.secret_key
+});
+
+var voices = {
+  emma: { name: 'Emma', language: 'en-GB', gender: 'Female' },
+  salli: { name: 'Salli', language: 'en-US', gender: 'Female' }
+};
+
+function speak(message) {
+  var file = new Date().getTime();
+  ivona
+    .createVoice(message, { body: { voice: voices.emma } })
+    .pipe(fs.createWriteStream(file + '.mp3'));
+  return true;
+}
 
 
 
@@ -38,7 +64,10 @@ var bot = new machina.Fsm({
   user: user,
 
   // Let the bot say something
-  say: function(message) { return console.log('    > ' + message); },
+  say: function(message) {
+    speak(message);
+    return console.log('    > ' + message);
+  },
 
   // Take user input and do something
   listen: function(input) { this.handle('listen', input); },

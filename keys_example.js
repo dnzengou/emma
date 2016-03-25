@@ -13,6 +13,12 @@ module.exports = {
   // http://developer.tmsapi.com/member/register
   gracenote: {
     key: '************************'
+  },
+
+  // https://www.ivona.com/
+  ivona: {
+    access_key: '************************',
+    secret_key: '************************'
   }
 
 };

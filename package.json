@@ -33,6 +33,7 @@
     "cheerio": "^0.20.0",
     "express": "^4.13.4",
     "express-session": "^1.13.0",
+    "ivona-node": "^0.2.0",
     "jade": "^1.11.0",
     "machina": "^2.0.0-1",
     "moment": "^2.12.0",
